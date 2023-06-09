@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template"
+>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+  <title>Gestion Inscription</title>
+</head>
+<body>
+<div class="container" layout:fragment="contentForview">
+  <div class="card">
+    <div class="card-header">
+      <h3>Liste des Inscrits</h3>
+    </div>
+    <div class="card-body">
+      <div class="float-end" >
+        <a th:href="@{/form-etudiant}" class="btn btn-outline-info">Nouveau</a>
+      </div>
+      <form class="d-flex my-2 w-50" method="get" >
+        <div class="col me-2">
+          <select name="classe" class="form-select" type="search" aria-label="Default select example">
+            <option th:each="cl:${listClasses}" th:value="${cl.id}" th:text="${cl.libelle}" ></option>
+          </select>
+        </div>
+        <div class="col">
+          <button class="btn btn-outline-success" type="submit">Filtrer</button>
+        </div>
+      </form>
+      <table class="table table-bordered">
+        <thead>
+        <th>Matricule</th>
+        <th>Nom Complet</th>
+        <th>Classe</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+        <tr th:each="etud:${listEtudiant}">
+          <td th:text="${etud.matricule}"></td>
+          <td th:text="${etud.nomComplet}"></td>
+          <td th:text="${etud.classe}"></td>
+          <td>
+            <form href="#" method="post">
+              <input class="btn btn-sm btn-outline-info" type="submit" value="Absences">
+              <input class="btn btn-sm btn-outline-warning " type="submit" value="Annuler">
+            </form>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <nav aria-label="...">
+        <ul class="pagination float-end">
+          <li class="page-item disabled">
+            <a class="page-link"><<</a>
+          </li>
+          <li class="page-item" th:each="page,current:${pages}">
+            <a th:class="${currentPage==current.index?'page-link active':'page-link'}"
+               th:text="${current.index+1}" th:href="@{liste-inscription(page=${current.index})}">
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">>></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template"
+>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+  <title>Gestion Inscription</title>
+</head>
+<body>
+<div class="container" layout:fragment="contentForview">
+  <div class="card">
+    <div class="card-header">
+      <h3>Enregistrement d'Etudiant</h3>
+    </div>
+    <div class="card-body">
+      <form  class="col-md-8 offset-2" method="post" th:action="@{/save-etudiant}">
+        <div th:if="${mode}" th:class="${mode=='error' ? 'alert alert-danger' : 'alert alert-success'}" th:text="${message}" class="alert alert-danger" role="alert">
+        </div>
+        <div class="mb-3">
+          <label for="matricule" class="form-label">Matricule</label>
+          <input type="text" name="matricule" th:value="${etudiant.matricule}" class="form-control" id="matricule" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="nomComplet" class="form-label">Nom Complet</label>
+          <input type="text" name="nomComplet" th:value="${etudiant.nomComplet}" class="form-control" id="nomComplet" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="text" name="email" th:value="${etudiant.email}" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for=tuteur class="form-label">Tuteur</label>
+          <input type="text" name="tuteur" th:value="${etudiant.tuteur}" class="form-control" id="tuteur" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Classe</label>
+          <div class="col me-2">
+            <select name="classe" class="form-select"  aria-label="Default select example">
+              <option th:each="cl:${listClasses}" th:value="${cl.id}" th:text="${cl.libelle}" ></option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="float-end btn btn-primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template"
+>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+  <title>Gestion Inscription</title>
+</head>
+<body>
+<div class="container" layout:fragment="contentForview">
+  <div class="card">
+    <div class="card-header">
+      <h3>Enregistrement de Classe</h3>
+    </div>
+    <div class="card-body">
+      <form  class="col-md-8 offset-2" method="post" th:action="@{/save-classe}">
+        <div th:if="${mode}" th:class="${mode=='error' ? 'alert alert-danger' : 'alert alert-success'}" th:text="${message}" class="alert alert-danger" role="alert">
+        </div>
+        <div class="mb-3">
+          <label for="libelle" class="form-label">Libelle</label>
+          <input type="text" name="libelle" th:value="${classe.libelle}" class="form-control" id="libelle" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="filiere" class="form-label">Filiere</label>
+          <input type="text" name="filiere" th:value="${classe.filiere}" class="form-control" id="filiere" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="niveau" class="form-label">Niveau</label>
+          <input type="text" name="niveau" th:value="${classe.niveau}" class="form-control" id="niveau" aria-describedby="emailHelp">
+        </div>
+        <div>
+          <button type="submit" class="float-end btn btn-primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
