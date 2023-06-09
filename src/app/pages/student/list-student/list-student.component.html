@@ -1,0 +1,19 @@
+<nb-card class="p-4">
+  <table class="table nb-form-field-addon-basic">
+    <thead>
+    <tr>
+      <th scope="col">Matricule</th>
+      <th scope="col">FullName</th>
+      <th scope="col">Classe</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of student$ | async">
+      <td>{{student.matricule}}</td>
+      <td>{{student.fullName}}</td>
+      <td>{{student.classe}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+</nb-card>

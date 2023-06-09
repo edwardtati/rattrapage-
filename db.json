@@ -1,0 +1,58 @@
+{
+  "salles": [
+    {
+      "id": 1,
+      "name": "Etage 1",
+      "number": "2",
+      "capacity": 244
+    },
+    {
+      "id": 2,
+      "name": "Etage 2",
+      "number": "3",
+      "capacity": 150
+    },
+    {
+      "id": 3,
+      "name": "Etage 3",
+      "number": "1",
+      "capacity": 200
+    },
+    {
+      "id": 4,
+      "name": "Etage 1",
+      "number": "2",
+      "capacity": 244
+    },
+    {
+      "id": 5,
+      "name": "Etage 2",
+      "number": "3",
+      "capacity": 150
+    },
+    {
+      "id": 6,
+      "name": "Etage 3",
+      "number": "1",
+      "capacity": 200
+    },
+    {
+      "id": 7,
+      "name": "Etage 1",
+      "number": "2",
+      "capacity": 244
+    },
+    {
+      "id": 8,
+      "name": "Etage 2",
+      "number": "3",
+      "capacity": 150
+    },
+    {
+      "id": 9,
+      "name": "Etage 3",
+      "number": "1",
+      "capacity": 200
+    }
+  ]
+}
